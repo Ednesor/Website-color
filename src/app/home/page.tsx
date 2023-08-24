@@ -7,26 +7,70 @@ import { AiOutlineSelect } from "react-icons/ai";
 import { BiPaint } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 
+const colorBTN = "#61FFFF";
+const colorNoBTN = "#fff";
+
 export default function page() {
   const [openGear, setOpenGear] = useState<boolean>(false);
-  const [mode, setMode] = useState<string>("select");
+  const [color, setColor] = useState<string>("#000000");
+  const [mode, setMode] = useState<string>("none");
+  const [selection, setSelection] = useState<string>("none");
+
+  const handleChangeColor = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setColor(e.target.value);
+  };
+
+  const handleChangeMode = (m: string) => {
+    setMode(m);
+  };
+
+  const handleClicSelect = () => {
+    handleChangeMode("select");
+  };
+
+  const handleClicPaint = () => {
+    handleChangeMode("paint");
+  };
+
+  const handleClicGroup = () => {
+    handleChangeMode("group");
+  };
+
+  const handleClicColor = () => {
+    handleChangeMode("color");
+    //TODO: agregar todos los elementos a un estado en forma de array y asignarles el color de ahi
+  };
+
+  const handleSelectElement = (
+    e: React.MouseEvent<HTMLElement, MouseEvent>,
+    s: string
+  ) => {
+    console.log("clic", s)
+    e.stopPropagation();
+    if(mode === "select"){
+      setSelection(s);
+    }
+  };
 
   return (
     <main className={style.main}>
       <section className={style.container}>
         <div className={style.web}>
-          <nav className={style.navbar}>
-            <h1>Logo</h1>
+          <nav
+            className={style.navbar}
+            onClick={(e) => handleSelectElement(e, "nbnv_body")}
+          >
+            <h1 onClick={(e) => handleSelectElement(e, "nbh1_text")}>Logo</h1>
             <ul className={style.links}>
-              <li className={style.linkA}>Welcome</li>
-              <li className={style.linkA}>About Us</li>
-              <li className={style.linkA}>Contact</li>
-              <li className={style.user}>
+              <li className={style.linkA} onClick={(e) => handleSelectElement(e, "nbli_text")}>Welcome</li>
+              <li className={style.linkA} onClick={(e) => handleSelectElement(e, "nbli_text")}>About Us</li>
+              <li className={style.linkA} onClick={(e) => handleSelectElement(e, "nbli_text")}>Contact</li>
+              <li className={style.user} onClick={(e) => handleSelectElement(e, "nbli_text")}>
                 <p>GS</p>
                 <AiFillCaretDown className={style.dropIcon} />
               </li>
             </ul>
-            <GiHamburgerMenu className={style.menuIcon}/>
+            <GiHamburgerMenu className={style.menuIcon} />
           </nav>
           <article className={style.art}>
             <div className={style.content}>
@@ -61,7 +105,9 @@ export default function page() {
               <a href="#">Terms</a>
               <a href="#">Conditions</a>
             </section>
-            <p className={style.copy}>© 2023 Copyright Ednesor | All Rights Reserved</p>
+            <p className={style.copy}>
+              © 2023 Copyright Ednesor | All Rights Reserved
+            </p>
           </footer>
         </div>
         <div className={style.drag} hidden></div>
@@ -73,17 +119,46 @@ export default function page() {
           style={{ transform: openGear ? "rotate(0deg)" : "rotate(-90deg)" }}
         />
       </button>
-      <div className={style.tools} style={{ left: openGear ? "5px" : "-100vw" }}>
-        <input type="color" name="color1" id="color" />
-        <button className={style.selectBtn}>
+      <div
+        className={style.tools}
+        // style={{ left: openGear ? "5px" : "-100vw" }}
+      >
+        <input
+          type="color"
+          name="color1"
+          id="color1"
+          value={color}
+          onChange={handleChangeColor}
+        />
+        <label
+          onClick={handleClicColor}
+          htmlFor="color1"
+          className={style.color}
+          style={{ backgroundColor: color }}
+        ></label>
+        <button
+          style={{ backgroundColor: mode === "select" ? colorBTN : colorNoBTN }}
+          onClick={handleClicSelect}
+          className={style.selectBtn}
+        >
           <AiOutlineSelect className={style.selectIcon} />
         </button>
-        <button className={style.selectBtn}>
+        <button
+          style={{ backgroundColor: mode === "paint" ? colorBTN : colorNoBTN }}
+          onClick={handleClicPaint}
+          className={style.selectBtn}
+        >
           <BiPaint className={style.selectIcon} />
         </button>
-        <button className={style.selectBtn}>
+        <button
+          style={{ backgroundColor: mode === "group" ? colorBTN : colorNoBTN }}
+          onClick={handleClicGroup}
+          className={style.selectBtn}
+        >
           <h1>1</h1>
         </button>
+        <p>{mode}</p>
+        <p>{selection}</p>
       </div>
     </main>
   );
