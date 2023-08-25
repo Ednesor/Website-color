@@ -10,11 +10,18 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const colorBTN = "#61FFFF";
 const colorNoBTN = "#fff";
 
+interface htmlElement {
+  id: string;
+  color: string;
+  type: "backgroundColor" | "color";
+}
+
 export default function page() {
   const [openGear, setOpenGear] = useState<boolean>(false);
   const [color, setColor] = useState<string>("#000000");
   const [mode, setMode] = useState<string>("none");
   const [selection, setSelection] = useState<string>("none");
+  const [elements, setElements] = useState<Array<htmlElement>>([]);
 
   const handleChangeColor = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);
@@ -28,8 +35,44 @@ export default function page() {
     handleChangeMode("select");
   };
 
+  const getIdElement = (
+    elementsArray: Array<htmlElement>,
+    id: string
+  ): number => {
+    for (let i = 0; i < elementsArray.length; i++) {
+      if (elementsArray[i].id === id) {
+        return i;
+      }
+    }
+    return -1;
+  };
+
+  const bodyOrText = (s: string): "backgroundColor" | "color" => {
+    if (s.substring(5, 9) === "body") {
+      return "backgroundColor";
+    } else return "color";
+  };
+
+  const paintElement = (id: string) => {
+    if (getIdElement(elements, id) === -1) {
+      setElements([
+        ...elements,
+        {
+          id: id,
+          color: color,
+          type: bodyOrText(id),
+        },
+      ]);
+    } else {
+      elements[getIdElement(elements, id)].color = color;
+    }
+  };
+
   const handleClicPaint = () => {
     handleChangeMode("paint");
+    if (selection !== "none") {
+      paintElement(selection);
+    }
   };
 
   const handleClicGroup = () => {
@@ -38,16 +81,14 @@ export default function page() {
 
   const handleClicColor = () => {
     handleChangeMode("color");
-    //TODO: agregar todos los elementos a un estado en forma de array y asignarles el color de ahi
   };
 
   const handleSelectElement = (
     e: React.MouseEvent<HTMLElement, MouseEvent>,
     s: string
   ) => {
-    console.log("clic", s)
     e.stopPropagation();
-    if(mode === "select"){
+    if (mode === "select") {
       setSelection(s);
     }
   };
@@ -59,13 +100,47 @@ export default function page() {
           <nav
             className={style.navbar}
             onClick={(e) => handleSelectElement(e, "nbnv_body")}
+            style={{
+              backgroundColor:
+                getIdElement(elements, "nbnv_body") !== -1
+                  ? elements[getIdElement(elements, "nbnv_body")].color
+                  : "gray",
+            }}
           >
-            <h1 onClick={(e) => handleSelectElement(e, "nbh1_text")}>Logo</h1>
+            <h1
+              onClick={(e) => handleSelectElement(e, "nbh1_text")}
+              style={{
+                color:
+                  getIdElement(elements, "nbh1_text") !== -1
+                    ? elements[getIdElement(elements, "nbh1_text")].color
+                    : "black",
+              }}
+            >
+              Logo
+            </h1>
             <ul className={style.links}>
-              <li className={style.linkA} onClick={(e) => handleSelectElement(e, "nbli_text")}>Welcome</li>
-              <li className={style.linkA} onClick={(e) => handleSelectElement(e, "nbli_text")}>About Us</li>
-              <li className={style.linkA} onClick={(e) => handleSelectElement(e, "nbli_text")}>Contact</li>
-              <li className={style.user} onClick={(e) => handleSelectElement(e, "nbli_text")}>
+              <li
+                className={style.linkA}
+                onClick={(e) => handleSelectElement(e, "nbli_text")}
+              >
+                Welcome
+              </li>
+              <li
+                className={style.linkA}
+                onClick={(e) => handleSelectElement(e, "nbli_text")}
+              >
+                About Us
+              </li>
+              <li
+                className={style.linkA}
+                onClick={(e) => handleSelectElement(e, "nbli_text")}
+              >
+                Contact
+              </li>
+              <li
+                className={style.user}
+                onClick={(e) => handleSelectElement(e, "nbli_text")}
+              >
                 <p>GS</p>
                 <AiFillCaretDown className={style.dropIcon} />
               </li>
@@ -84,7 +159,12 @@ export default function page() {
                 architecto ipsam?
               </p>
             </div>
-            <p className={style.image}>Image</p>
+            <p
+              className={style.image}
+              onClick={(e) => handleSelectElement(e, "image")}
+            >
+              Image
+            </p>
           </article>
           <footer className={style.footer}>
             <h2>Logo</h2>
