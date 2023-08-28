@@ -22,15 +22,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  interface StateApp {
-    lang: string,
-    color1: string,
-    color2: string,
-    color3: string,
-    color4: string,
-  }
+  // interface StateApp {
+  //   lang: string,
+  //   color1: string,
+  //   color2: string,
+  //   color3: string,
+  //   color4: string,
+  // }
 
-  const [state, setState] = useState<Array<StateApp>>([]);
+  // const [state, setState] = useState<Array<StateApp>>([]);
 
   return (
     <html lang="en">
