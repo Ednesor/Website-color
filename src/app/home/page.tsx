@@ -215,8 +215,30 @@ export default function page() {
           </nav>
           <article className={style.art}>
             <div className={style.content}>
-              <h1>Lorem, ipsum.</h1>
-              <p>
+              <h1
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "a1h1_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "a1h1_text") !== -1
+                      ? elements[getIdElement(elements, "a1h1_text")].color
+                      : "black",
+                }}
+              >
+                Lorem, ipsum.
+              </h1>
+              <p
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "a1p1_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "a1p1_text") !== -1
+                      ? elements[getIdElement(elements, "a1p1_text")].color
+                      : "black",
+                }}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Accusantium obcaecati id explicabo natus sunt necessitatibus,
                 consectetur ducimus fugit quos quidem quae corporis velit neque
@@ -227,31 +249,212 @@ export default function page() {
             </div>
             <p
               className={style.image}
-              onClick={(e) => handleSelectElement(e, "image")}
+              onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                handleSelectElement(e, "a1i1_body")
+              }
+              style={{
+                backgroundColor:
+                  getIdElement(elements, "a1i1_body") !== -1
+                    ? elements[getIdElement(elements, "a1i1_body")].color
+                    : "gray",
+              }}
             >
               Image
             </p>
           </article>
-          <footer className={style.footer}>
-            <h2>Logo</h2>
+          <footer
+            className={style.footer}
+            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+              handleSelectElement(e, "fo00_body")
+            }
+            style={{
+              backgroundColor:
+                getIdElement(elements, "fo00_body") !== -1
+                  ? elements[getIdElement(elements, "fo00_body")].color
+                  : "gray",
+            }}
+          >
+            <h2
+              onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                handleSelectElement(e, "foh2_text")
+              }
+              style={{
+                color:
+                  getIdElement(elements, "foh2_text") !== -1
+                    ? elements[getIdElement(elements, "foh2_text")].color
+                    : "black",
+              }}
+            >
+              Logo
+            </h2>
             <section className={style.footerSect}>
-              <h3>Social Media</h3>
-              <a href="#">Social Media</a>
-              <a href="#">Social Media</a>
-              <a href="#">Social Media</a>
+              <h3
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "foh3_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "foh3_text") !== -1
+                      ? elements[getIdElement(elements, "foh3_text")].color
+                      : "black",
+                }}
+              >
+                Social Media
+              </h3>
+              <a
+                href="#"
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "foa1_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "foa1_text") !== -1
+                      ? elements[getIdElement(elements, "foa1_text")].color
+                      : "black",
+                }}
+              >
+                Social Media
+              </a>
+              <a
+                href="#"
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "foa1_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "foa1_text") !== -1
+                      ? elements[getIdElement(elements, "foa1_text")].color
+                      : "black",
+                }}
+              >
+                Social Media
+              </a>
+              <a
+                href="#"
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "foa1_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "foa1_text") !== -1
+                      ? elements[getIdElement(elements, "foa1_text")].color
+                      : "black",
+                }}
+              >
+                Social Media
+              </a>
             </section>
             <section className={style.footerSect}>
-              <h3>Site map</h3>
-              <a href="#">About</a>
-              <a href="#">welcome</a>
-              <a href="#">Get started</a>
+              <h3
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "foh3_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "foh3_text") !== -1
+                      ? elements[getIdElement(elements, "foh3_text")].color
+                      : "black",
+                }}
+              >
+                Site map
+              </h3>
+              <a
+                href="#"
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "foa1_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "foa1_text") !== -1
+                      ? elements[getIdElement(elements, "foa1_text")].color
+                      : "black",
+                }}
+              >
+                About
+              </a>
+              <a
+                href="#"
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "foa1_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "foa1_text") !== -1
+                      ? elements[getIdElement(elements, "foa1_text")].color
+                      : "black",
+                }}
+              >
+                welcome
+              </a>
+              <a
+                href="#"
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "foa1_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "foa1_text") !== -1
+                      ? elements[getIdElement(elements, "foa1_text")].color
+                      : "black",
+                }}
+              >
+                Get started
+              </a>
             </section>
             <section className={style.footerSect}>
-              <h3>Legals</h3>
-              <a href="#">Terms</a>
-              <a href="#">Conditions</a>
+              <h3
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "foh3_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "foh3_text") !== -1
+                      ? elements[getIdElement(elements, "foh3_text")].color
+                      : "black",
+                }}
+              >
+                Legals
+              </h3>
+              <a
+                href="#"
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "foa1_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "foa1_text") !== -1
+                      ? elements[getIdElement(elements, "foa1_text")].color
+                      : "black",
+                }}
+              >
+                Terms
+              </a>
+              <a
+                href="#"
+                onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                  handleSelectElement(e, "foa1_text")
+                }
+                style={{
+                  color:
+                    getIdElement(elements, "foa1_text") !== -1
+                      ? elements[getIdElement(elements, "foa1_text")].color
+                      : "black",
+                }}
+              >
+                Conditions
+              </a>
             </section>
-            <p className={style.copy}>
+            <p className={style.copy}
+            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+              handleSelectElement(e, "focp_text")
+            }
+            style={{
+              color:
+                getIdElement(elements, "focp_text") !== -1
+                  ? elements[getIdElement(elements, "focp_text")].color
+                  : "black",
+            }}
+            >
               © 2023 Copyright Ednesor | All Rights Reserved
             </p>
           </footer>
@@ -268,7 +471,7 @@ export default function page() {
       <div
         className={style.tools}
         // TODO: eliminar comentario al finalizar
-        // style={{ left: openGear ? "5px" : "-100vw" }}
+        style={{ left: openGear ? "5px" : "-100vw" }}
       >
         <input
           type="color"
@@ -297,15 +500,17 @@ export default function page() {
         >
           <BiPaint className={style.selectIcon} />
         </button>
-        <button
+
+        {/* //TODO: asignar funcionalidad */}
+        <button hidden
           style={{ backgroundColor: mode === "group" ? colorBTN : colorNoBTN }}
           onClick={handleClicGroup}
           className={style.selectBtn}
         >
           <h1>1</h1>
         </button>
-        <p>{mode}</p>
-        <p>{selection}</p>
+        {/* <p>{mode}</p> */}
+        {/* <p>{selection}</p> */}
       </div>
     </main>
   );
