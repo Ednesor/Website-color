@@ -95,7 +95,16 @@ export default function page() {
 
   return (
     <main className={style.main}>
-      <section className={style.container}>
+      <section
+        className={style.container}
+        onClick={(e) => handleSelectElement(e, "menu_body")}
+        style={{
+          backgroundColor:
+            getIdElement(elements, "menu_body") !== -1
+              ? elements[getIdElement(elements, "menu_body")].color
+              : "white",
+        }}
+      >
         <div className={style.web}>
           <nav
             className={style.navbar}
@@ -108,11 +117,11 @@ export default function page() {
             }}
           >
             <h1
-              onClick={(e) => handleSelectElement(e, "nbh1_text")}
+              onClick={(e) => handleSelectElement(e, "nbh1_text_1")}
               style={{
                 color:
-                  getIdElement(elements, "nbh1_text") !== -1
-                    ? elements[getIdElement(elements, "nbh1_text")].color
+                  getIdElement(elements, "nbh1_text_1") !== -1
+                    ? elements[getIdElement(elements, "nbh1_text_1")].color
                     : "black",
               }}
             >
@@ -121,31 +130,88 @@ export default function page() {
             <ul className={style.links}>
               <li
                 className={style.linkA}
-                onClick={(e) => handleSelectElement(e, "nbli_text")}
+                onClick={(e) => handleSelectElement(e, "nbli_text_2")}
+                style={{
+                  color:
+                    getIdElement(elements, "nbli_text_2") !== -1
+                      ? elements[getIdElement(elements, "nbli_text_2")].color
+                      : "black",
+                }}
               >
                 Welcome
               </li>
               <li
                 className={style.linkA}
-                onClick={(e) => handleSelectElement(e, "nbli_text")}
+                onClick={(e) => handleSelectElement(e, "nbli_text_3")}
+                style={{
+                  color:
+                    getIdElement(elements, "nbli_text_3") !== -1
+                      ? elements[getIdElement(elements, "nbli_text_3")].color
+                      : "black",
+                }}
               >
                 About Us
               </li>
               <li
                 className={style.linkA}
-                onClick={(e) => handleSelectElement(e, "nbli_text")}
+                onClick={(e) => handleSelectElement(e, "nbli_text_4")}
+                style={{
+                  color:
+                    getIdElement(elements, "nbli_text_4") !== -1
+                      ? elements[getIdElement(elements, "nbli_text_4")].color
+                      : "black",
+                }}
               >
                 Contact
               </li>
               <li
                 className={style.user}
-                onClick={(e) => handleSelectElement(e, "nbli_text")}
+                onClick={(e) => handleSelectElement(e, "nbli_user")}
+                style={{
+                  color:
+                    getIdElement(elements, "nbli_user") !== -1
+                      ? elements[getIdElement(elements, "nbli_user")].color
+                      : "black",
+                  borderColor:
+                    getIdElement(elements, "nbli_user") !== -1
+                      ? elements[getIdElement(elements, "nbli_user")].color
+                      : "black",
+                }}
               >
-                <p>GS</p>
-                <AiFillCaretDown className={style.dropIcon} />
+                <p
+                  onClick={(e) => handleSelectElement(e, "nbli_user")}
+                  style={{
+                    color:
+                      getIdElement(elements, "nbli_user") !== -1
+                        ? elements[getIdElement(elements, "nbli_user")].color
+                        : "black",
+                  }}
+                >
+                  GS
+                </p>
+                <AiFillCaretDown
+                  className={style.dropIcon}
+                  style={{
+                    color:
+                      getIdElement(elements, "nbli_user") !== -1
+                        ? elements[getIdElement(elements, "nbli_user")].color
+                        : "black",
+                  }}
+                />
               </li>
             </ul>
-            <GiHamburgerMenu className={style.menuIcon} />
+            <GiHamburgerMenu
+              className={style.menuIcon}
+              onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+                handleSelectElement(e, "nbli_menu")
+              }
+              style={{
+                color:
+                  getIdElement(elements, "nbli_menu") !== -1
+                    ? elements[getIdElement(elements, "nbli_menu")].color
+                    : "black",
+              }}
+            />
           </nav>
           <article className={style.art}>
             <div className={style.content}>
@@ -201,6 +267,7 @@ export default function page() {
       </button>
       <div
         className={style.tools}
+        // TODO: eliminar comentario al finalizar
         // style={{ left: openGear ? "5px" : "-100vw" }}
       >
         <input
