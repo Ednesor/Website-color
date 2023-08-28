@@ -6,7 +6,7 @@
   font-size: 30px;
 }
 .gear {
-  border: 1px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.253);
   border-radius: 50%;
   position: fixed;
   bottom: 10px;
@@ -27,7 +27,7 @@
   height: 10vh;
   position: fixed;
   bottom: 10px;
-  border: 1px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.253);
   border-radius: 100px;
   display: flex;
   justify-content: space-evenly;
