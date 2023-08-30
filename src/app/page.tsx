@@ -4,18 +4,12 @@ import data from "../utils/languaje.json";
 import Link from "next/link";
 import usaFlag from "../assets/usa_flag.jpg";
 import spainFlag from "../assets/spain_flag.jpg";
-import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { setLangEnglish, setLangSpanish } from "@/redux/features/configSlice";
 
 export default function Home() {
-  const [lang, setLang] = useState<"english" | "spanish">("english");
-
-  // TODO: cambiar el any
-  const changeLang = (
-    e: React.MouseEvent<HTMLElement, MouseEvent>,
-    str: "english" | "spanish"
-  ) => {
-    setLang(str);
-  };
+  const lang= useAppSelector((state) => state.configReducer.lang)
+  const dispatch = useAppDispatch()
 
   return (
     <main className={styles.main}>
@@ -23,13 +17,13 @@ export default function Home() {
       <div className={styles.langContainer}>
         <button
           className={styles.btnImage}
-          onClick={(e) => changeLang(e, "english")}
+          onClick={() => dispatch(setLangEnglish())}
         >
           <img src={usaFlag.src} alt="english" />
         </button>
         <button
           className={styles.btnImage}
-          onClick={(e) => changeLang(e, "spanish")}
+          onClick={() => dispatch(setLangSpanish())}
         >
           <img src={spainFlag.src} alt="spanish" />
         </button>
