@@ -2,12 +2,35 @@
     "spanish":[
         "Bienvenido a Website Color Viewer",
         "Comenzar",
-        "¿Como se usa?"
+        "¿Como se usa?",
+        "Guía de usuario",
+        "Existen muchas formas de utilizar la app, puede cambiar el color de los elementos uno por uno o ir agrupandolos y asignándole un color al grupo entero",
+        "Menu de herramientas",
+        "Para abrir el menu de herramientas debes hacer clic en el engranaje en la parte inferior derecha de tu pantalla.",
+        "A continuacion podrás identificar que herramienta se encuentra en uso actualmente",
+        "Herramientas",
+        "Color",
+        "Selecciona un color de la paleta de colores o ingresa un código",
+        "Seleccionar",
+        "Cambia el modo a selección de elementos. Haga clic en algun elemento y quedará seleccionado",
+        "Pintar",
+        "Haga clic para pintar el elemento seleccionado del color actual en la paleta de colores."
     ],
-    "english":[
-        "Welcome to the Website Color Viewer",
+    "english": [
+        "Welcome to Website Color Viewer",
         "Get Started",
-        "How to use?"
-        
+        "How to Use?",
+        "User Guide",
+        "There are many ways to use the app. You can change the color of individual elements one by one or group them and assign a color to the entire group.",
+        "Tool Menu",
+        "To open the tool menu, click on the gear icon at the bottom right of your screen.",
+        "You will then be able to identify which tool is currently in use.",
+        "Tools",
+        "Color",
+        "Select a color from the color palette or enter a code.",
+        "Select",
+        "Switch to element selection mode. Click on an element to select it.",
+        "Paint",
+        "Click to paint the selected element with the current color from the color palette."
     ]
 }
